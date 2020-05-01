@@ -69,7 +69,7 @@ class Env():
     def getState(self, scan):
         scan_range = []
         heading = self.heading
-        min_range = 0.13
+        min_range = 0.3
         done = False
 
         for i in range(len(scan.ranges)):
@@ -82,7 +82,8 @@ class Env():
 
         obstacle_min_range = round(min(scan_range), 2)
         obstacle_angle = np.argmin(scan_range)
-        if min_range > min(scan_range) > 0:
+        print(min(scan_range))
+        if min_range > min(scan_range)  :
             done = True
 
         current_distance = round(math.hypot(self.goal_x - self.position.x, self.goal_y - self.position.y),2)
